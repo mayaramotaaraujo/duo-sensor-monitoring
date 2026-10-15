@@ -1,4 +1,4 @@
-# DUO e Sensor Monitoring API
+# Sensor Monitoring API
 
 Checkpoint integrado das disciplinas de **Governança em IA** e **Front-end**.
 
