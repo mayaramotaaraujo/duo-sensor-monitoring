@@ -7,7 +7,7 @@ Neste checkpoint, o grupo analisou uma parte específica do DUO, o gêmeo digita
 ## Integrantes
 
 | Nome |
-|---|---|
+|---|
 | Mayara Mota |
 | Gabriel Palmeira |
 
