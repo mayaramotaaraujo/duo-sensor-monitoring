@@ -1,0 +1,171 @@
+{
+  "periodo": {
+    "de": "2026-10-14T23:38:05",
+    "ate": "2026-10-14T23:43:30"
+  },
+  "total_chamadas": 273,
+  "indicadores": {
+    "latencia_p95_ms": {
+      "nome": "Tempo de resposta (percentil 95)",
+      "valor": 1135.37,
+      "unidade": "ms",
+      "baseline": 13.37,
+      "atencao": 300,
+      "estouro": 1000,
+      "situacao": "estouro",
+      "acao": "limitar a janela do histórico na tela, revisar a consulta e abrir registro do incidente com os request_id afetados",
+      "detalhe": {
+        "por_rota": {
+          "/v1/sensores/{tag}/historico": 1232.21,
+          "/v1/sensores/{tag}/leitura-atual": 18.39
+        },
+        "media_ms": 205.11
+      }
+    },
+    "taxa_erro_servidor_pct": {
+      "nome": "Taxa de erro do servidor",
+      "valor": 0.0,
+      "unidade": "%",
+      "baseline": 0.0,
+      "atencao": 0.5,
+      "estouro": 2.0,
+      "situacao": "ok",
+      "acao": null,
+      "detalhe": {
+        "chamadas_5xx": 0
+      }
+    },
+    "taxa_erro_cliente_pct": {
+      "nome": "Taxa de chamadas recusadas",
+      "valor": 13.55,
+      "unidade": "%",
+      "baseline": 0.0,
+      "atencao": 5.0,
+      "estouro": 15.0,
+      "situacao": "atencao",
+      "acao": "conferir qual feature e qual sessão estão gerando as recusas",
+      "detalhe": {
+        "chamadas_4xx": 37
+      }
+    },
+    "freshness_p95_s": {
+      "nome": "Idade da leitura entregue (freshness, percentil 95)",
+      "valor": 0.86,
+      "unidade": "x o limite",
+      "baseline": 0.81,
+      "atencao": 1,
+      "estouro": 5,
+      "acao": null,
+      "detalhe": {
+        "por_fonte_e_fase": {
+          "arquivo exportado · girando": {
+            "p95_s": 0.66,
+            "limite_s": 3.0,
+            "chamadas": 90,
+            "atrasadas": 0
+          },
+          "arquivo exportado · parado": {
+            "p95_s": 76.99,
+            "limite_s": 90.0,
+            "chamadas": 85,
+            "atrasadas": 0
+          },
+          "planilha processada · girando": {
+            "p95_s": 13.58,
+            "limite_s": 30.0,
+            "chamadas": 12,
+            "atrasadas": 0
+          }
+        },
+        "p95_geral_s": 67.25
+      },
+      "situacao": "ok"
+    },
+    "completude_freshness_pct": {
+      "nome": "Taxa de completude de freshness",
+      "valor": 100.0,
+      "unidade": "%",
+      "baseline": 99.27,
+      "atencao": 95.0,
+      "estouro": 90.0,
+      "situacao": "ok",
+      "acao": null,
+      "detalhe": {
+        "leituras_atuais": 187,
+        "por_fonte_e_fase": {
+          "arquivo exportado · girando": 100.0,
+          "arquivo exportado · parado": 100.0,
+          "planilha processada · girando": 100.0
+        }
+      }
+    },
+    "completude_campos_pct": {
+      "nome": "Completude dos campos",
+      "valor": 100.0,
+      "unidade": "%",
+      "baseline": 99.74,
+      "atencao": 100.0,
+      "estouro": 75.0,
+      "situacao": "ok",
+      "acao": null,
+      "detalhe": {
+        "por_origem": {
+          "arquivo exportado": 100.0,
+          "planilha processada": 100.0
+        }
+      }
+    },
+    "rastreabilidade_pct": {
+      "nome": "Rastreabilidade das chamadas",
+      "valor": 72.89,
+      "unidade": "%",
+      "baseline": 100.0,
+      "atencao": 100.0,
+      "estouro": 95.0,
+      "situacao": "estouro",
+      "acao": "ligar a recusa de chamadas sem contexto (DUO_EXIGIR_CONTEXTO=1) até o cliente ser corrigido",
+      "detalhe": {
+        "sem_contexto": 74,
+        "por_cliente": {
+          "python-requests/2.34.2": 72.89
+        }
+      }
+    },
+    "volume_por_minuto": {
+      "nome": "Volume de chamadas por minuto",
+      "valor": 55.05,
+      "unidade": "chamadas/min",
+      "baseline": 35.14,
+      "atencao": "três vezes a baseline",
+      "estouro": "dez vezes a baseline",
+      "situacao": "ok",
+      "acao": null,
+      "detalhe": {
+        "minutos_observados": 5.0,
+        "por_feature": {
+          "historico": 9.88,
+          "leitura_atual": 30.25,
+          "sem feature": 14.92
+        },
+        "sessoes": 3
+      }
+    },
+    "taxa_severidade_vermelha_pct": {
+      "nome": "Taxa de severidade vermelha",
+      "valor": 3.74,
+      "unidade": "%",
+      "baseline": 0.52,
+      "atencao": "15 pontos acima ou abaixo da baseline",
+      "estouro": "30 pontos acima ou abaixo da baseline",
+      "situacao": "ok",
+      "acao": null,
+      "detalhe": {
+        "distribuicao": {
+          "amarelo": 168,
+          "verde": 12,
+          "vermelho": 7
+        }
+      }
+    }
+  }
+}

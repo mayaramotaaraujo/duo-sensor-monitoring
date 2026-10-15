@@ -1,0 +1,15 @@
+{
+  "fonte": "calculado a partir do histórico de cada motor",
+  "estado": "pronto",
+  "como_calcular": {
+    "parado": "vibração abaixo de 0,30 mm/s",
+    "girando": "a pelo menos 80 por cento do patamar do ciclo, com a janela de 40 segundos variando pouco",
+    "acelerando": "abaixo do patamar e subindo",
+    "desacelerando": "abaixo do patamar e descendo"
+  },
+  "usado_ate_sprint3": {
+    "parado": 0.1,
+    "devagar": 2.0,
+    "normal": 5.5
+  }
+}

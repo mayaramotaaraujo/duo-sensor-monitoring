@@ -1,0 +1,195 @@
+{
+  "versao": "1.1",
+  "endpoint_observado": "provider de Sensores do DUO (leitura atual e histórico)",
+  "o_que_cada_chamada_registra": {
+    "request_id": "identificador único da chamada, devolvido no header X-Request-Id",
+    "momento": "data e hora em UTC em que a chamada chegou",
+    "session_id": "header X-Session-Id enviado pelo front, quem chamou",
+    "feature": "header X-Feature enviado pelo front, de qual tela veio",
+    "headers_completos": "1 quando os dois headers vieram, 0 quando faltou algum",
+    "metodo_e_rota": "GET e a rota com {tag}, para agrupar por endpoint",
+    "tag": "motor consultado",
+    "status": "código HTTP devolvido",
+    "latencia_ms": "tempo entre a chegada da chamada e a saída da resposta",
+    "idade_dado_s": "quanto tempo a leitura entregue já tinha quando saiu (freshness)",
+    "limite_freshness_s": "o limite que valia para aquela fonte e fase do motor",
+    "dentro_freshness": "1 quando a idade ficou dentro do limite",
+    "fase": "parado ou girando no momento da leitura",
+    "completude_pct": "porcentagem dos campos esperados que vieram preenchidos",
+    "severidade": "cor devolvida para o motor (verde, amarelo, vermelho, cinza)",
+    "cliente": "header User-Agent, para separar a tela do script",
+    "erro": "mensagem quando a chamada falhou"
+  },
+  "freshness_limites_s": {
+    "arquivo exportado": {
+      "girando": 3.0,
+      "parado": 90.0,
+      "de_onde_veio": "No histórico de maio, com o motor girando, o maior intervalo entre leituras foi 2,3 s e o sensor faz média de 2 s, então o limite é 3 s. Com o motor parado, o limite começou em 60 s (99% dos intervalos abaixo de 44 s) e foi para 90 s na versão 1.1, porque medido pelo tempo a leitura passa de 90 s em só 3,1% do tempo parado."
+    },
+    "planilha processada": {
+      "girando": 30.0,
+      "parado": 30.0,
+      "de_onde_veio": "O conjunto de referência chega a cada 15 s. O limite é o dobro do ritmo normal."
+    },
+    "endereço da fábrica": {
+      "girando": 1200.0,
+      "parado": 1200.0,
+      "de_onde_veio": "A coleta de agosto pelo endereço da Forzy trouxe uma leitura a cada 500 s, em mediana. O limite é pouco mais que o dobro."
+    }
+  },
+  "indicadores": {
+    "latencia_p95_ms": {
+      "nome": "Tempo de resposta (percentil 95)",
+      "o_que_mede": "o tempo que 95% das chamadas levam, no máximo, para responder",
+      "como_calcula": "percentil 95 de latencia_ms por endpoint, sem contar o próprio painel de observabilidade",
+      "unidade": "ms",
+      "direcao": "maior_pior",
+      "baseline": 13.37,
+      "atencao": 300,
+      "estouro": 1000,
+      "grafico": "linha ao longo do tempo, um traço por endpoint, com as linhas de atenção e estouro marcadas",
+      "acao_atencao": "conferir qual endpoint subiu e se o histórico está pedindo janelas grandes demais",
+      "acao_estouro": "limitar a janela do histórico na tela, revisar a consulta e abrir registro do incidente com os request_id afetados",
+      "baseline_por_endpoint": {
+        "leitura-atual": 2.77,
+        "historico": 144.16
+      },
+      "de_onde_veio": "a tela atualiza a cada 3 s. A resposta precisa voltar bem antes do próximo ciclo: estouro em 1 s, um terço do ciclo. A atenção fica em 300 ms, cerca do dobro do p95 do histórico, que é o endpoint mais lento no uso normal"
+    },
+    "taxa_erro_servidor_pct": {
+      "nome": "Taxa de erro do servidor",
+      "o_que_mede": "porcentagem de chamadas que terminaram com status 5xx",
+      "como_calcula": "chamadas com status maior ou igual a 500 divididas pelo total",
+      "unidade": "%",
+      "direcao": "maior_pior",
+      "baseline": 0.0,
+      "atencao": 0.5,
+      "estouro": 2.0,
+      "referencia": "a coleta de agosto pelo endereço da Forzy teve 98,1% de disponibilidade, ou 1,9% de falha. O DUO não pode falhar mais que a fonte que ele lê",
+      "grafico": "barras empilhadas por endpoint, separando 2xx, 4xx e 5xx",
+      "acao_atencao": "ler a coluna erro dos registros com 5xx e reproduzir a chamada pelo request_id",
+      "acao_estouro": "avisar o responsável pelo back-end, mostrar na tela que os dados estão indisponíveis em vez de mostrar a última cor como se fosse atual"
+    },
+    "taxa_erro_cliente_pct": {
+      "nome": "Taxa de chamadas recusadas",
+      "o_que_mede": "porcentagem de chamadas com status 4xx, como motor que não existe ou parâmetro errado",
+      "como_calcula": "chamadas com status entre 400 e 499 divididas pelo total",
+      "unidade": "%",
+      "direcao": "maior_pior",
+      "baseline": 0.0,
+      "atencao": 5.0,
+      "estouro": 15.0,
+      "grafico": "barras por feature, para saber qual tela está pedindo errado",
+      "acao_atencao": "conferir qual feature e qual sessão estão gerando as recusas",
+      "acao_estouro": "corrigir o front que está montando a chamada errada antes da próxima entrega"
+    },
+    "freshness_p95_s": {
+      "nome": "Idade da leitura entregue (freshness, percentil 95)",
+      "o_que_mede": "quanto tempo a leitura atual já tinha quando chegou na tela, comparado com o limite da sua fonte",
+      "como_calcula": "percentil 95 de idade_dado_s para cada par de fonte e fase do motor, dividido pelo limite desse par (freshness_limites_s). O indicador mostra o pior par",
+      "unidade": "x o limite",
+      "direcao": "maior_pior",
+      "baseline": 0.81,
+      "atencao": 1,
+      "estouro": 5,
+      "grafico": "linha da idade de cada chamada ao longo do tempo, com a cor da fase e a linha do limite",
+      "acao_atencao": "mostrar na tela que a leitura está atrasada, junto com a idade",
+      "acao_estouro": "deixar de mostrar a cor do motor como atual, marcar como sem medição e avisar a manutenção para conferir o cabo, o mestre IO-Link e a coleta",
+      "baseline_por_fonte_e_fase": {
+        "arquivo exportado · girando": 0.74,
+        "arquivo exportado · parado": 72.81,
+        "planilha processada · girando": 14.36
+      }
+    },
+    "completude_freshness_pct": {
+      "nome": "Taxa de completude de freshness",
+      "o_que_mede": "porcentagem das leituras atuais que chegaram dentro do limite de idade",
+      "como_calcula": "chamadas de leitura atual com dentro_freshness igual a 1 divididas pelo total de leituras atuais com dado",
+      "unidade": "%",
+      "direcao": "menor_pior",
+      "baseline": 99.27,
+      "atencao": 95.0,
+      "estouro": 90.0,
+      "grafico": "linha por janela de 5 minutos, com a faixa de 95% e de 90% marcadas",
+      "acao_atencao": "ver se as leituras atrasadas se concentram com o motor parado, o que é esperado, ou com ele girando, o que não é",
+      "acao_estouro": "tratar como falha de coleta: abrir chamado para a infraestrutura e registrar o período sem dado confiável"
+    },
+    "completude_campos_pct": {
+      "nome": "Completude dos campos",
+      "o_que_mede": "porcentagem das grandezas que o sensor deveria mandar e realmente mandou",
+      "como_calcula": "média de completude_pct nas respostas com leitura",
+      "unidade": "%",
+      "direcao": "menor_pior",
+      "baseline": 99.74,
+      "atencao": 100.0,
+      "estouro": 75.0,
+      "grafico": "barras empilhadas por origem do dado, mostrando campos presentes e ausentes",
+      "acao_atencao": "mostrar ao lado da cor quais olhares ficaram sem dado",
+      "acao_estouro": "não calcular a severidade com dado incompleto e avisar quem cuida da integração com a fonte"
+    },
+    "rastreabilidade_pct": {
+      "nome": "Rastreabilidade das chamadas",
+      "o_que_mede": "porcentagem das chamadas que chegaram com X-Session-Id e X-Feature",
+      "como_calcula": "chamadas com headers_completos igual a 1 divididas pelo total",
+      "unidade": "%",
+      "direcao": "menor_pior",
+      "baseline": 100.0,
+      "atencao": 100.0,
+      "estouro": 95.0,
+      "grafico": "cartão com o número grande e barras por cliente (User-Agent)",
+      "acao_atencao": "descobrir pelo cliente qual programa está chamando sem contexto",
+      "acao_estouro": "ligar a recusa de chamadas sem contexto (DUO_EXIGIR_CONTEXTO=1) até o cliente ser corrigido"
+    },
+    "volume_por_minuto": {
+      "nome": "Volume de chamadas por minuto",
+      "o_que_mede": "quantas chamadas a API recebe por minuto, por feature",
+      "como_calcula": "total de chamadas dividido pelos minutos da janela, separado por feature",
+      "unidade": "chamadas/min",
+      "direcao": "desvio",
+      "baseline": 35.14,
+      "atencao": "três vezes a baseline",
+      "estouro": "dez vezes a baseline",
+      "grafico": "barras por feature e mapa de calor de feature por minuto",
+      "acao_atencao": "ver se uma sessão sozinha concentra as chamadas, o que costuma ser tela presa em atualização",
+      "acao_estouro": "limitar as chamadas daquela sessão e revisar o intervalo de atualização da tela",
+      "baseline_por_feature": {
+        "leitura_atual": 32.38,
+        "historico": 2.76
+      }
+    },
+    "taxa_severidade_vermelha_pct": {
+      "nome": "Taxa de severidade vermelha",
+      "o_que_mede": "porcentagem das leituras atuais em que o motor saiu como vermelho",
+      "como_calcula": "leituras atuais com severidade vermelha divididas pelas leituras atuais com dado",
+      "unidade": "%",
+      "direcao": "desvio",
+      "baseline": 0.52,
+      "atencao": "15 pontos acima ou abaixo da baseline",
+      "estouro": "30 pontos acima ou abaixo da baseline",
+      "grafico": "barras empilhadas em 100% por janela de tempo, com as quatro cores",
+      "acao_atencao": "conferir se mudou o motor, a base escolhida ou a fonte, antes de acreditar que o motor piorou",
+      "acao_estouro": "revisar os limites da ficha e a regra de severidade com o gestor, porque alarme demais ou de menos faz a equipe parar de confiar"
+    }
+  },
+  "historico_de_versoes": [
+    {
+      "versao": "1.0",
+      "data": "2026-10-14",
+      "o_que_mudou": "primeira versão. Limites de freshness tirados dos intervalos entre leituras do histórico de maio"
+    },
+    {
+      "versao": "1.1",
+      "data": "2026-10-14",
+      "o_que_mudou": "o limite do motor parado passou de 60 s para 90 s. Na baseline, 9% das leituras atuais com o motor parado passaram de 60 s, porque a tela pergunta em momentos aleatórios e as pausas longas ocupam mais tempo do que a contagem de intervalos mostra. Medindo pelo tempo, com 60 s a leitura fica atrasada em 6,5% do tempo parado e com 90 s em 3,1%. Também foram preenchidas as baselines e os limiares de latência"
+    }
+  ],
+  "baseline_medida": {
+    "periodo_utc": [
+      "2026-10-14T23:07:50",
+      "2026-10-14T23:38:00"
+    ],
+    "chamadas": 1056,
+    "sessoes": 4,
+    "como": "30 minutos de uso simulado com python -m frontend.consumo_requests --simular 30: sala de controle lendo o BBA-001 a cada 3 s, técnico lendo o REF-001 a cada 5 s, gestor abrindo o painel a cada 90 s"
+  }
+}

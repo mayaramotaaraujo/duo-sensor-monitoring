@@ -1,0 +1,25 @@
+{
+  "fonte": "prática de análise de vibração, medido no BBA-001",
+  "estado": "medido",
+  "o_que_e": "a razão entre o pico e a média da aceleração",
+  "por_situacao": {
+    "carga_alta_estavel": {
+      "usar": true,
+      "normal_ate": 4.5,
+      "atencao_ate": 6.0,
+      "alerta_acima": 6.0
+    },
+    "carga_media": {
+      "usar": false,
+      "motivo": "a média cai e o número sobe por divisão"
+    },
+    "partida": {
+      "usar": false,
+      "motivo": "a variação natural é grande demais"
+    },
+    "parado": {
+      "usar": false,
+      "motivo": "não há aceleração para comparar"
+    }
+  }
+}

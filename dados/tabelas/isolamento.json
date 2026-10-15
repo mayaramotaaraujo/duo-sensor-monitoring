@@ -1,0 +1,33 @@
+{
+  "fonte": "Guia WEG 50032749 tabela 7.1, ABNT NBR 17094 e IEC 60034-1",
+  "estado": "confirmado",
+  "ambiente_de_referencia": 40,
+  "classes": {
+    "A": {
+      "elevacao": 60,
+      "diferenca_ponto_quente": 5,
+      "temp_maxima": 105
+    },
+    "E": {
+      "elevacao": 75,
+      "diferenca_ponto_quente": 5,
+      "temp_maxima": 120
+    },
+    "B": {
+      "elevacao": 80,
+      "diferenca_ponto_quente": 10,
+      "temp_maxima": 130
+    },
+    "F": {
+      "elevacao": 105,
+      "diferenca_ponto_quente": 10,
+      "temp_maxima": 155
+    },
+    "H": {
+      "elevacao": 125,
+      "diferenca_ponto_quente": 15,
+      "temp_maxima": 180
+    }
+  },
+  "regra_de_vida_util": "cada 8 a 10 graus acima do limite da classe corta pela metade a vida do enrolamento"
+}

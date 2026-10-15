@@ -1,0 +1,34 @@
+{
+  "fonte": "Guia WEG 50032749 seção 11.1",
+  "estado": "confirmado",
+  "tipos": {
+    "centrifuga": {
+      "exemplos": "bombas centrífugas, ventiladores, compressores",
+      "esforco": "cresce com o quadrado da velocidade",
+      "partida": "entre 1 e 1,5 vez o normal",
+      "vibracao": "estável quando a carga é estável",
+      "atencao": "vibração subindo com corrente parada indica problema mecânico, não mais trabalho"
+    },
+    "alternativa": {
+      "exemplos": "bombas alternativas, compressores de pistão",
+      "esforco": "alto na partida, depois cai",
+      "partida": "entre 2 e 3 vezes o normal",
+      "vibracao": "pulsante por natureza",
+      "atencao": "vibração pulsante com corrente estável é funcionamento normal, não é defeito"
+    },
+    "intermitente": {
+      "exemplos": "prensas, guindastes, elevadores",
+      "esforco": "varia em picos, com partidas frequentes",
+      "partida": "3 vezes o normal",
+      "vibracao": "irregular, com picos a cada ciclo",
+      "atencao": "o número de partidas é o que mais importa"
+    },
+    "atrito_constante": {
+      "exemplos": "esteiras, transportadores",
+      "esforco": "constante em qualquer velocidade",
+      "partida": "pode ser alto",
+      "vibracao": "estável, com degraus quando muda a carga",
+      "atencao": "corrente subindo sem vibração indica peso a mais"
+    }
+  }
+}

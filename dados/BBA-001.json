@@ -1,0 +1,347 @@
+{
+  "tag": "BBA-001",
+  "criada_em": "2026-09-08T13:18:45",
+  "versao": "sprint4",
+  "local": {
+    "planta": "Forzy",
+    "area": "Área de Testes",
+    "ponto": "Setor B, bancada 01",
+    "x": 71935,
+    "y": -18865
+  },
+  "placa": {
+    "modelo": "W22",
+    "produto": "13887610",
+    "fases": 1,
+    "potencia_kw": "2.2 kW",
+    "potencia_cv": "3.0 cv",
+    "tensao": "110-127 / 220-254 V",
+    "corrente": "12,5/10,8 A",
+    "rotacao": "3525 rpm",
+    "frequencia": "60 Hz",
+    "polos": "2",
+    "carcaca": "100L",
+    "grau_ip": "IP55",
+    "isolamento": "F",
+    "fator_servico": "1.15",
+    "regime": "S1"
+  },
+  "derivado": {
+    "vibracao": {
+      "faixa_da_norma": {
+        "valor": "Grupo 2",
+        "unidade": "",
+        "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+        "confianca": "alta"
+      },
+      "descricao_faixa": "motores até 300 kW",
+      "base_definida": null,
+      "base_rigida": {
+        "normal_ate": {
+          "valor": 2.8,
+          "unidade": "mm/s",
+          "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+          "confianca": "alta"
+        },
+        "investigar_acima": {
+          "valor": 3.5,
+          "unidade": "mm/s",
+          "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+          "confianca": "alta"
+        },
+        "parar_acima": {
+          "valor": 5.6,
+          "unidade": "mm/s",
+          "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+          "confianca": "alta"
+        },
+        "zona_a_ate": 1.4,
+        "zona_b_ate": 2.8,
+        "zona_c_ate": 4.5
+      },
+      "base_flexivel": {
+        "normal_ate": {
+          "valor": 4.5,
+          "unidade": "mm/s",
+          "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+          "confianca": "alta"
+        },
+        "investigar_acima": {
+          "valor": 5.6,
+          "unidade": "mm/s",
+          "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+          "confianca": "alta"
+        },
+        "parar_acima": {
+          "valor": 8.9,
+          "unidade": "mm/s",
+          "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+          "confianca": "alta"
+        },
+        "zona_a_ate": 2.3,
+        "zona_b_ate": 4.5,
+        "zona_c_ate": 7.1
+      }
+    },
+    "rotacao": {
+      "sincrona": {
+        "valor": 3600,
+        "unidade": "rpm",
+        "fonte": "conta: 120 x Hz / polos",
+        "confianca": "alta"
+      },
+      "nominal": {
+        "valor": 3525,
+        "unidade": "rpm",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "escorregamento_pct": 2.08,
+      "giros_por_segundo": {
+        "valor": 58.75,
+        "unidade": "Hz",
+        "fonte": "conta: rpm dividido por 60",
+        "confianca": "alta"
+      }
+    },
+    "onde_cada_problema_aparece": {
+      "desbalanceamento": {
+        "hz": 58.8,
+        "regra": "uma vez a rotação",
+        "o_sensor_enxerga": true
+      },
+      "desalinhamento": {
+        "hz": 117.5,
+        "regra": "duas vezes a rotação",
+        "o_sensor_enxerga": true
+      },
+      "folga_mecanica": {
+        "hz": 176.2,
+        "regra": "três vezes a rotação",
+        "o_sensor_enxerga": true
+      },
+      "problema_eletrico": {
+        "hz": 120.0,
+        "regra": "duas vezes a rede",
+        "o_sensor_enxerga": true
+      },
+      "faixa_do_sensor_hz": [
+        10,
+        1000
+      ]
+    },
+    "medidas_mm": {
+      "altura_do_eixo": {
+        "valor": 100,
+        "unidade": "mm",
+        "fonte": "Guia WEG 50032749 seção 10.1, ABNT NBR 15623 e IEC 60072",
+        "confianca": "alta"
+      },
+      "furos_na_largura": {
+        "valor": 160,
+        "unidade": "mm",
+        "fonte": "Guia WEG 50032749 seção 10.1, ABNT NBR 15623 e IEC 60072",
+        "confianca": "alta"
+      },
+      "furos_no_comprimento": {
+        "valor": 140,
+        "unidade": "mm",
+        "fonte": "Guia WEG 50032749 seção 10.1, ABNT NBR 15623 e IEC 60072",
+        "confianca": "alta"
+      },
+      "do_eixo_ao_furo": {
+        "valor": 63,
+        "unidade": "mm",
+        "fonte": "Guia WEG 50032749 seção 10.1, ABNT NBR 15623 e IEC 60072",
+        "confianca": "alta"
+      },
+      "furo_de_fixacao": {
+        "valor": 12,
+        "unidade": "mm",
+        "fonte": "Guia WEG 50032749 seção 10.1, ABNT NBR 15623 e IEC 60072",
+        "confianca": "alta"
+      },
+      "diametro_do_eixo": {
+        "valor": 28,
+        "unidade": "mm",
+        "fonte": "Guia WEG 50032749 seção 10.1, ABNT NBR 15623 e IEC 60072",
+        "confianca": "alta"
+      },
+      "comprimento_do_eixo": {
+        "valor": 60,
+        "unidade": "mm",
+        "fonte": "Guia WEG 50032749 seção 10.1, ABNT NBR 15623 e IEC 60072",
+        "confianca": "alta"
+      },
+      "diametro_do_corpo": {
+        "valor": 205,
+        "unidade": "mm",
+        "fonte": "proporção pela altura do eixo",
+        "confianca": "media"
+      },
+      "comprimento_total": {
+        "valor": 418,
+        "unidade": "mm",
+        "fonte": "proporção conferida no desenho do 13887610",
+        "confianca": "media"
+      },
+      "altura_total": {
+        "valor": 244,
+        "unidade": "mm",
+        "fonte": "proporção conferida no desenho do 13887610",
+        "confianca": "media"
+      }
+    },
+    "onde_ficam_os_sensores": {
+      "s1_lado_do_acoplamento": {
+        "y": -110,
+        "z": 100,
+        "nome": "lado do acoplamento"
+      },
+      "s2_lado_oposto": {
+        "y": 110,
+        "z": 100,
+        "nome": "lado oposto ao acoplamento"
+      }
+    },
+    "termico": {
+      "classe": {
+        "valor": "F",
+        "unidade": "",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "temperatura_maxima": {
+        "valor": 155,
+        "unidade": "C",
+        "fonte": "Guia WEG 50032749 tabela 7.1, ABNT NBR 17094 e IEC 60034-1",
+        "confianca": "alta"
+      },
+      "elevacao_permitida": {
+        "valor": 105,
+        "unidade": "K",
+        "fonte": "Guia WEG 50032749 tabela 7.1, ABNT NBR 17094 e IEC 60034-1",
+        "confianca": "alta"
+      },
+      "ambiente_de_projeto": {
+        "valor": 40,
+        "unidade": "C",
+        "fonte": "Guia WEG 50032749 tabela 7.1, ABNT NBR 17094 e IEC 60034-1",
+        "confianca": "alta"
+      },
+      "tempo_de_aquecimento": {
+        "valor": 157,
+        "unidade": "min",
+        "fonte": "proporção pela carcaça, medida no BBA-001",
+        "confianca": "baixa"
+      },
+      "regra_de_vida": "cada 8 a 10 graus acima do limite da classe corta pela metade a vida do enrolamento"
+    },
+    "partidas": {
+      "limite_por_hora": {
+        "valor": 15,
+        "unidade": "partidas/h",
+        "fonte": "Guia WEG 50032749 tabela 7.6 e manual 50033244",
+        "confianca": "media"
+      },
+      "regime": {
+        "valor": "S1",
+        "unidade": "",
+        "fonte": "lido na placa",
+        "confianca": "alta"
+      },
+      "o_que_o_regime_permite": "duas partidas seguidas com o motor frio, ou uma partida com o motor já na temperatura de trabalho",
+      "como_contar": "só vale quando o motor liga do zero; mudança de carga com ele girando não conta"
+    },
+    "eletrico": {
+      "fases": {
+        "valor": 1,
+        "unidade": "",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "potencia_kw": {
+        "valor": 2.2,
+        "unidade": "kW",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "potencia_cv": {
+        "valor": 3.0,
+        "unidade": "cv",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "frequencia": {
+        "valor": 60.0,
+        "unidade": "Hz",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "polos": {
+        "valor": 2,
+        "unidade": "",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "tensao": {
+        "valor": "110-127 / 220-254 V",
+        "unidade": "",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "corrente_nominal": {
+        "valor": 12.5,
+        "unidade": "A",
+        "fonte": "lida na placa",
+        "confianca": "alta"
+      },
+      "corrente_maxima": {
+        "valor": 14.37,
+        "unidade": "A",
+        "fonte": "conta: nominal vezes o fator de serviço 1.15",
+        "confianca": "alta"
+      },
+      "fator_de_servico": {
+        "valor": 1.15,
+        "unidade": "",
+        "fonte": "lido na placa",
+        "confianca": "alta"
+      }
+    },
+    "carga": {
+      "tipo": "centrifuga",
+      "exemplos": "bombas centrífugas, ventiladores, compressores",
+      "esforco": "cresce com o quadrado da velocidade",
+      "partida": "entre 1 e 1,5 vez o normal",
+      "vibracao": "estável quando a carga é estável",
+      "atencao": "vibração subindo com corrente parada indica problema mecânico, não mais trabalho",
+      "fonte": "Guia WEG 50032749 seção 11.1"
+    },
+    "fator_crista": {
+      "o_que_e": "a razão entre o pico e a média da aceleração",
+      "quando_usar": "só com o motor em carga alta e estável",
+      "limites": {
+        "usar": true,
+        "normal_ate": 4.5,
+        "atencao_ate": 6.0,
+        "alerta_acima": 6.0
+      },
+      "fonte": "prática de análise de vibração, medido no BBA-001"
+    }
+  },
+  "avisos": [
+    "o tipo de base ainda não foi definido, então os dois cenários ficam disponíveis"
+  ],
+  "identificacao_do_cliente": {
+    "projeto": "R11.06-2130",
+    "tag_motor": "R11.06-2130-ME22A",
+    "componentes_motor": 7,
+    "tag_conjunto": "R11.06-2130-B01A",
+    "componentes_bomba": 3,
+    "componentes_base": 2,
+    "carga_acionada": "bomba centrífuga, em acoplamento direto",
+    "observacao": "o BBA-001 é como o DUO chama o conjunto. Na Forzy, o motor é o ME22A e a bomba com a base é o B01A, ambos do projeto R11.06-2130",
+    "de_onde_veio": "nomes das peças no arquivo 3D em STEP"
+  }
+}

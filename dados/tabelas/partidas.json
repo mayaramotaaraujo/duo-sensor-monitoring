@@ -1,0 +1,14 @@
+{
+  "fonte": "Guia WEG 50032749 tabela 7.6 e manual 50033244",
+  "estado": "confirmado",
+  "limite_generico_por_hora": 15,
+  "observacao_limite": "a WEG lista funcionamento com mais de 15 partidas por hora como condição que exige proteção adicional",
+  "regime_s1": {
+    "definicao": "motor projetado para carga constante por tempo indefinido",
+    "partidas_permitidas": "duas partidas seguidas com o motor frio, ou uma partida com o motor já na temperatura de trabalho"
+  },
+  "usado_ate_sprint3": {
+    "valor": 1.5,
+    "observacao": "não foi encontrada fonte para esse número em nenhum documento do fabricante"
+  }
+}

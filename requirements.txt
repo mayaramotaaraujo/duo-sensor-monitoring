@@ -1,0 +1,13 @@
+# back-end
+fastapi>=0.110
+uvicorn>=0.27
+pandas>=2.1
+numpy>=1.26
+
+# front-end e consumo
+requests>=2.31
+gradio>=6.0
+plotly>=5.20
+
+# relatório de governança (figuras do documento)
+matplotlib>=3.8

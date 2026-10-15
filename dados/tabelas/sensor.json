@@ -1,0 +1,85 @@
+{
+  "fonte": "Folha de dados Pepperl+Fuchs 70140695-100001",
+  "estado": "confirmado",
+  "modelo": "VIM32PL-E1AC8-0RE-IO-1V1401",
+  "protocolo": "IO-Link 1.1",
+  "conta": "valor = (primeiro byte x 256 + segundo) / terceiro",
+  "blocos": {
+    "1": {
+      "bytes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "grandeza": "velocidade eficaz",
+      "unidade": "mm/s",
+      "faixa": [
+        0,
+        128
+      ],
+      "resolucao": 0.01
+    },
+    "2": {
+      "bytes": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "grandeza": "aceleração eficaz",
+      "unidade": "g",
+      "faixa": [
+        0,
+        10
+      ],
+      "resolucao": 0.01
+    },
+    "3": {
+      "bytes": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "grandeza": "aceleração de pico",
+      "unidade": "g",
+      "faixa": [
+        0,
+        10
+      ],
+      "resolucao": 0.01
+    },
+    "4": {
+      "bytes": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "grandeza": "temperatura",
+      "unidade": "C",
+      "faixa": [
+        -40,
+        85
+      ],
+      "resolucao": 1
+    }
+  },
+  "por_que_o_canal_3_e_o_pico": "a folha lista os quatro canais mas não amarra a ordem aos bytes. Nos dados do BBA-001 o canal 2 chega a 0,58 e o canal 3 chega a 4,38. Pico não pode ser menor que a média do mesmo sinal, então o canal 3 é o de pico",
+  "medicao": {
+    "faixa_de_frequencia_hz": [
+      10,
+      1000
+    ],
+    "tempo_de_media_s": 2,
+    "amostragem_interna_hz": 8000,
+    "precisao_velocidade": "0,1 mm/s, garantida acima de 8 mm/s"
+  },
+  "limitacao": "a precisão da velocidade só é garantida acima de 8 mm/s. As leituras de repouso, em torno de 0,04 mm/s, estão muito abaixo dessa faixa",
+  "saidas": {
+    "pino_4": "IO-Link ou chaveamento",
+    "pino_2": "analógico de 4 a 20 mA ou chaveamento"
+  },
+  "corrigido_da_sprint3": "a Sprint 3 registrava faixa de 0 a 100 mm/s e de menos 25 a mais 70 graus. Os valores certos são 0 a 128 mm/s e menos 40 a mais 85 graus"
+}

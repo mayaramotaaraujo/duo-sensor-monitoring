@@ -1,0 +1,43 @@
+{
+  "fonte": "Folha de dados WEG do produto 13887610",
+  "estado": "confirmado",
+  "linha": "W22 Monofásico",
+  "numero_de_fases": 1,
+  "carcaca": "100L",
+  "potencia_kw": 2.2,
+  "potencia_cv": 3.0,
+  "polos": 2,
+  "frequencia_hz": 60,
+  "tensao": "110-127 / 220-254 V",
+  "corrente_nominal": "25,0 a 21,7 A em 110-127 V; 12,5 a 10,8 A em 220-254 V",
+  "razao_partida_nominal": 8.7,
+  "rotacao_nominal_rpm": 3525,
+  "rotacao_sincrona_rpm": 3600,
+  "escorregamento_pct": 2.08,
+  "classe_isolamento": "F",
+  "elevacao_temperatura_k": 105,
+  "fator_de_servico": 1.15,
+  "regime": "S1",
+  "grau_protecao": "IP55",
+  "refrigeracao": "IC411 TFVE",
+  "massa_kg": 37.0,
+  "ruido_db": 72.0,
+  "rolamentos": {
+    "dianteiro": "6206 ZZ",
+    "traseiro": "6206 ZZ"
+  },
+  "rotor_bloqueado": {
+    "frio_s": 16,
+    "quente_s": 9
+  },
+  "rendimento": {
+    "50_pct": 72.7,
+    "75_pct": 79.2,
+    "100_pct": 81.8
+  },
+  "corrigido_do_passaporte_antigo": {
+    "corrente": "estava 9,89 e 4,94 A, o certo é 12,5 a 10,8 A na ligação de 220 a 254 V",
+    "rotacao": "estava 3600 rpm, que é a síncrona; a nominal é 3525 rpm",
+    "fases": "o motor é monofásico"
+  }
+}

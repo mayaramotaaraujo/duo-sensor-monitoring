@@ -1,0 +1,54 @@
+{
+  "fonte": "Manual WEG 50033244, tabela 7.7, citando ISO 20816-3",
+  "estado": "confirmado",
+  "observacao": "a norma separa por potência e por tipo de base; o DUO calcula os dois cenários enquanto a base não estiver definida",
+  "faixas": [
+    {
+      "nome": "Grupo 2",
+      "descricao": "motores até 300 kW",
+      "kw_de": 0.0,
+      "kw_ate": 300.0,
+      "base_rigida": {
+        "zona_a_ate": 1.4,
+        "zona_b_ate": 2.8,
+        "zona_c_ate": 4.5,
+        "acao_investigar": 3.5,
+        "acao_parar": 5.6
+      },
+      "base_flexivel": {
+        "zona_a_ate": 2.3,
+        "zona_b_ate": 4.5,
+        "zona_c_ate": 7.1,
+        "acao_investigar": 5.6,
+        "acao_parar": 8.9
+      }
+    },
+    {
+      "nome": "Grupo 1",
+      "descricao": "motores acima de 300 kW",
+      "kw_de": 300.0,
+      "kw_ate": 50000.0,
+      "base_rigida": {
+        "zona_a_ate": 2.3,
+        "zona_b_ate": 4.5,
+        "zona_c_ate": 7.1,
+        "acao_investigar": 5.6,
+        "acao_parar": 8.9
+      },
+      "base_flexivel": {
+        "zona_a_ate": 3.5,
+        "zona_b_ate": 7.1,
+        "zona_c_ate": 11.0,
+        "acao_investigar": 8.9,
+        "acao_parar": 13.8
+      }
+    }
+  ],
+  "usado_ate_sprint3": {
+    "zona_a_ate": 2.3,
+    "zona_b_ate": 4.5,
+    "zona_c_ate": 7.1,
+    "observacao": "são as fronteiras de zona da base FLEXÍVEL, mas a documentação do projeto dizia base rígida"
+  },
+  "nota": "o ensaio de fábrica da IEC 60034-14 não vale para motores monofásicos, por isso a folha do BBA-001 traz vibração como não aplicável"
+}
