@@ -1,15 +1,15 @@
-# DUO · Sensor Monitoring API
+# DUO e Sensor Monitoring API
 
-Checkpoint integrado das disciplinas de **Governança em IA** e **Front-end** do curso Tecnólogo em Inteligência Artificial da FIAP (turma 2TIAP, 2026).
+Checkpoint integrado das disciplinas de **Governança em IA** e **Front-end**.
 
-Neste checkpoint nós pegamos uma fatia só do DUO, o gêmeo digital que estamos construindo para o motor WEG W22 da Forzy, e observamos essa fatia com calma. A fatia escolhida pelos professores foi o provider de Sensores: a leitura atual e o histórico. Por isso, transformamos esse provider em uma API FastAPI, fizemos cada chamada deixar um registro de observabilidade e montamos uma tela em Gradio que consome tudo via `requests`.
+Neste checkpoint, o grupo analisou uma parte específica do DUO, o gêmeo digital em desenvolvimento para o motor WEG W22 da Forzy, com o objetivo de observá-la em profundidade. A parte definida pelos professores foi o provedor de Sensores, responsável pela leitura atual e pelo histórico das medições. Para isso, esse provedor foi disponibilizado como uma API em FastAPI, na qual cada chamada gera um registro de observabilidade. Além disso, foi desenvolvida uma interface em Gradio que consome os endpoints da API por meio da biblioteca requests.
 
 ## Integrantes
 
-| Nome | RM |
+| Nome |
 |---|---|
-| Mayara Mota | 563887 |
-| Gabriel Palmeira | 563522 |
+| Mayara Mota |
+| Gabriel Palmeira |
 
 ## O que tem aqui
 
