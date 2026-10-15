@@ -162,4 +162,4 @@ Autenticação e autorização ficam para a Sprint 4 final, assim como a migraç
 
 ## Vídeo
 
-Link do vídeo de demonstração: *(colocar aqui)*
+Link do vídeo de demonstração: *https://youtu.be/1sHSXXvpGoM*
